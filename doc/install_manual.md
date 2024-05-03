@@ -6,7 +6,17 @@
 - `.env` file containing necessary environment variables
 - Configuration file for SSH settings (`config_file`)
 
-## Installation Steps## Manual Instalation
+## Installation
+
+### Automatic Instalation
+This method requires that [.gitbash](https://github.com/sergio-rodrigues/.git_bash) is installed first:
+
+To install the script, just execute:
+```bash
+git_bash_manager install .git_alias
+```
+
+### Manual Instalation
 1. Download Archive
 
 Download the zip archive from:
