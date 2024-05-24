@@ -67,7 +67,7 @@ case "$1" in
                 #Remove gateway comment and proxy command from .ssh/config
                 sed -i '/^# Gateway:/d; /^ProxyCommand/d' ~/.ssh/config
                 # Backup account-specific directory
-                local backup_dir="${BACKUP_DIR}/$(date +"%Y-%m-%d")"
+                backup_dir="${BACKUP_DIR}/$(date +"%Y-%m-%d")"
                 mkdir -p "${backup_dir}"
                 tar -czf "${backup_dir}/$(date +"%H-%M-%S")_ssh_config.tar.gz" -C ~/.ssh config
             else
