@@ -67,9 +67,11 @@ case "$1" in
                 #Remove gateway comment and proxy command from .ssh/config
                 sed -i '/^# Gateway:/d; /^ProxyCommand/d' ~/.ssh/config
                 # Backup account-specific directory
-                backup_dir="${BACKUP_DIR}/$(date +"%Y-%m-%d")"
-                mkdir -p "${backup_dir}"
-                tar -czf "${backup_dir}/$(date +"%H-%M-%S")_ssh_config.tar.gz" -C ~/.ssh config
+                if [ -z "${BACKUP_DIR}" ]; then
+                    backup_dir="${BACKUP_DIR}/$(date +"%Y-%m-%d")"
+                    mkdir -p "${backup_dir}"
+                    tar -czf "${backup_dir}/$(date +"%H-%M-%S")_ssh_config.tar.gz" -C ~/.ssh config
+                fi
             else
                 #create .ssh/config
                 echo "# default configuration file created by .git_alias" > ~/.ssh/config
